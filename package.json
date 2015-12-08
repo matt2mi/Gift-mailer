@@ -1,0 +1,23 @@
+{
+  "name": "AnoGifts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.13.3"
+  },
+  "devDependencies": {
+    "body-parser": "^1.14.1",
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "lodash": "^3.10.1",
+    "nodemailer": "^1.10.0",
+    "nodemailer-wellknown": "^0.1.7",
+    "xoauth2": "^1.1.0"
+  },
+  "scripts": {
+    "start": "node server"
+  },
+  "author": "matt2mi",
+  "license": "ISC"
+}
