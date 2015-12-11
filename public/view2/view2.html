@@ -1,0 +1,41 @@
+<div class="md-padding">
+    <div layout="row">
+        <div layout="column" ng-repeat="user in users">
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Nom</label>
+                <input ng-model="user.name" disabled>
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Mail</label>
+                <input ng-model="user.mail" disabled>
+            </md-input-container>
+        </div>
+        <div layout="column" ng-if="newUser">
+            <form name="newUserForm" ng-submit="addUser()">
+                <h1 class="md-title">Nouvelle personne</h1>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Nom</label>
+                    <input ng-model="currentUser.name" required name="name">
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Mail</label>
+                    <input ng-model="currentUser.mail" required name="mail" type="email">
+                </md-input-container>
+                <div layout="row">
+                    <md-button type="submit" class="md-raised md-primary">Ajouter</md-button>
+                    <md-button class="md-raised" ng-click="resetForm()">Effacer</md-button>
+                </div>
+            </form>
+        </div>
+        <div layout="column" ng-if="!newUser">
+            <md-button class="md-raised" ng-click="addNewUser()">
+                Ajouter une personne
+                <!--md-icon md-font-icon="icon-user-plus"
+                         ng-style="{color: 'rgb(50, 50, 200)', 'font-size': '48px', height: '48px'}"
+                         aria-label="Ajouter une personne"
+                         class="step"></md-icon-->
+            </md-button>
+            <md-button class="md-raised md-primary" ng-click="">Terminer</md-button>
+        </div>
+    </div>
+</div>
