@@ -60,6 +60,10 @@ app.use(function(req, res) {
     res.sendStatus(404);
 });
 
+app.listen(3000, function(){
+	console.log("Express Started");
+});
+
 sendOneMail = function(from, to, giftReceiver) {
 	/* Notre code pour nodemailer */
     var liste = listMails.join(', ');
