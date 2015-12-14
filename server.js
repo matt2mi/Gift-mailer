@@ -60,10 +60,6 @@ app.use(function(req, res) {
     res.sendStatus(404);
 });
 
-app.listen(8080, function(){
-	console.log("Express Started on Port 8080");
-});
-
 sendOneMail = function(from, to, giftReceiver) {
 	/* Notre code pour nodemailer */
     var liste = listMails.join(', ');
