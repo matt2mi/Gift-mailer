@@ -12,7 +12,8 @@
     "body-parser": "^1.14.1",
     "lodash": "^3.10.1",
     "nodemailer": "^1.10.0",
-    "nodemailer-wellknown": "^0.1.7"
+    "nodemailer-wellknown": "^0.1.7",
+    "debug": "~2.2.0"
   },
   "devDependencies": {
     "body-parser": "^1.14.1",
