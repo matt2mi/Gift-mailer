@@ -1,6 +1,11 @@
 {
   "name": "AnoGifts",
   "version": "1.0.0",
+  "engines": {
+    "node": "4.1.1",
+    "npm": "1.4.28"
+  },
+  "description": "",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server"
