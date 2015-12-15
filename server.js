@@ -12,7 +12,7 @@ var transporter = nodemailer.createTransport(({
 }));
 
 var app = express();
-//app.use(express.static(__dirname + '/public'));                 // set the static files location /public/img will be /img for users
+app.set('port', (process.env.PORT || 5000));
 app.use(bodyParser.urlencoded({'extended':'true'}));            // parse application/x-www-form-urlencoded
 app.use(bodyParser.json());                                     // parse application/json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
@@ -60,7 +60,7 @@ app.use(function(req, res) {
     res.sendStatus(404);
 });
 
-app.listen(3000, function(){
+app.listen(app.get('port'), function(){
 	console.log("Express Started");
 });
 
