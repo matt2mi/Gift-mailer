@@ -37,13 +37,10 @@ app.post('/email', function(req, res, next) {
 	var mailsListDest = shuffleArray(listMails);
     var i;
 
-
 	for(i=0; i<listMails.length; i++) {
-
     	sendOneMail(generator.options.user,
             listMails[i],
             mailsListDest[i]);
-
         console.log('mail à ' + listMails[i] + ' qui offre un cadeau pour ' + mailsListDest[i]);
     }
 
@@ -59,7 +56,6 @@ shuffleArray = function(list) {
             isGoodShuffled = false;
         }
     }
-
     if(isGoodShuffled) return list;
 
     return shuffleArray(list);
