@@ -2,14 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var nodemailer = require('nodemailer');
 var _ = require('lodash');
-
-var transporter = nodemailer.createTransport(({
-    service: 'Gmail',
-    auth: {
-        user: '2m1tema@gmail.com',
-        pass: ''
-    }
-}));
+var path = require('path');
 
 var app = express();
 app.set('port', (process.env.PORT || 5000));
@@ -17,11 +10,30 @@ app.use(bodyParser.urlencoded({'extended':'true'}));            // parse applica
 app.use(bodyParser.json());                                     // parse application/json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
 
-
 app.get('/', function(req, res, next) {
 });
 
-var listMails;
+app.get('/yop', function(req, res, next) {
+    res.sendFile(path.join(__dirname + '/index.html'));
+});
+
+app.use(function(req, res) {
+    res.sendStatus(404);
+});
+
+app.listen(app.get('port'), function(){
+    console.log("Express Started");
+});
+
+
+var listMails,
+    transporter = nodemailer.createTransport(({
+    service: 'Gmail',
+    auth: {
+        user: '2m1tema@gmail.com',
+        pass: ''
+    }
+}));
 
 app.post('/email', function(req, res, next) {
 	listMails = _.shuffle(req.body.mailsList.split(';'));
@@ -55,14 +67,6 @@ shuffleArray = function(list) {
 
     return shuffleArray(list);
 };
-
-app.use(function(req, res) {
-    res.sendStatus(404);
-});
-
-app.listen(app.get('port'), function(){
-	console.log("Express Started");
-});
 
 sendOneMail = function(from, to, giftReceiver) {
 	/* Notre code pour nodemailer */
