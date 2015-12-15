@@ -11,7 +11,7 @@ app.use(bodyParser.json());                                     // parse applica
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
 
 app.get('/', function(req, res, next) {
-    res.sendFile(path.join(__dirname + '/index.html'));
+    res.sendFile('public/index.html');
 });
 
 app.use(function(req, res) {
